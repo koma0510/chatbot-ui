@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import i18nextConfig from "../next-i18next.config";
+import '../styles/globals.css'
 // import { appWithTranslation, useTranslation } from 'next-i18next';
 import { Toaster } from "react-hot-toast"; 
+import ThemeRegistry from "@/components/Home/ThemeRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang={currentLocale}>
       <body className={inter.className}>
-        <Toaster />
-        {children}
+        <ThemeRegistry>
+          <Toaster />
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );

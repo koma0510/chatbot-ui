@@ -1,7 +1,20 @@
-import Image from "next/image";
 
-export default function Home() {
+import { HomePage } from '@/components/Home/HomePage'
+import { OpenAIModel, OpenAIModelID, OpenAIModels, fallbackModelID } from '@/types/openai'
+
+  interface HomeProps {
+    serverSideApiKeyIsSet: boolean
+    defaultModelId: OpenAIModelID
+  }
+
+const Home: React.FC<HomeProps> = ({serverSideApiKeyIsSet,defaultModelId}) => {
   return (
-    <h1>Top Page</h1>
-  );
+    <HomePage
+      serverSideApiKeyIsSet={serverSideApiKeyIsSet}  
+      defaultModelId = {defaultModelId}
+    />
+  )
 }
+export default Home
+
+
